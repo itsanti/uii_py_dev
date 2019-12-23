@@ -47,9 +47,10 @@ def parse_log(path, sep=' - ', tformat='%Y-%m-%d %H:%M:%S,%f'):
                 } for line in map(lambda line: tuple(line.split(sep)), f.readlines())]
 
 
-log = parse_log('log')
-latest_time = max([line['date'].time() for line in log])
-print(f'дата самого позднего лога по метке времени: {latest_time}')
+if __name__ == '__main__':
+    log = parse_log('log')
+    latest_time = max([line['date'].time() for line in log])
+    print(f'дата самого позднего лога по метке времени: {latest_time}')
 
 '''OUT
 самое частое имя из списка: Александр
